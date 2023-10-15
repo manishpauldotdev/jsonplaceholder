@@ -36,7 +36,7 @@ class SinglePostScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '~${post['userId']}',
+                        '~${post['authorName']}',
                         textAlign: TextAlign.right,
                         style: const TextStyle(
                           fontSize: 14,

@@ -21,12 +21,12 @@ class PostsScreen extends StatelessWidget {
       ),
       body: Consumer<PostsProvider>(
         builder: ((context, posts, child) {
-          return posts.postList.isEmpty
+          return posts.postListWithAuthor.isEmpty
               ? const Center(
                   child: CircularProgressIndicator(),
                 )
               : ListView.builder(
-                  itemCount: posts.postList.length,
+                  itemCount: posts.postListWithAuthor.length,
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(
@@ -34,14 +34,16 @@ class PostsScreen extends StatelessWidget {
                         vertical: 4.0,
                       ),
                       child: GestureDetector(
-                        onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SinglePostScreen(
-                              post: posts.postList[index],
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SinglePostScreen(
+                                post: posts.postListWithAuthor[index],
+                              ),
                             ),
-                          ),
-                        ),
+                          );
+                        },
                         child: Card(
                           child: Padding(
                             padding: const EdgeInsets.all(24.0),
@@ -49,14 +51,14 @@ class PostsScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  '${posts.postList[index]['title']}',
+                                  '${posts.postListWithAuthor[index]['title']}',
                                   style: const TextStyle(
                                     fontSize: 18,
                                   ),
                                 ),
                                 const Divider(),
                                 Text(
-                                  'Author: ${posts.postList[index]['userId'].toString()}',
+                                  'Author: ${posts.postListWithAuthor[index]['authorName']}',
                                   style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
