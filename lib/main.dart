@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:jsonplaceholder/services/fetch_posts.dart';
+import 'package:jsonplaceholder/services/fetch_post_details.dart';
 
 void main() async {
-  await fetchPosts();
+  await fetchPostDetails(1);
   runApp(const MyApp());
 }
 
