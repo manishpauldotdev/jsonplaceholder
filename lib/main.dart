@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:jsonplaceholder/services/fetch_users.dart';
+import 'package:jsonplaceholder/services/fetch_posts.dart';
 
 void main() async {
-  await fetchUsers();
+  await fetchPosts();
   runApp(const MyApp());
 }
 
