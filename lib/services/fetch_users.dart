@@ -14,7 +14,6 @@ Future<List<dynamic>> fetchUsers() async {
 
     if (response.statusCode == 200) {
       final json = jsonDecode(response.body);
-      print('users $json');
       return json;
     }
   } catch (e) {

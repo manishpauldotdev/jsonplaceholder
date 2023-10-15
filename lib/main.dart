@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:jsonplaceholder/services/fetch_post_details.dart';
+import 'package:jsonplaceholder/screens/posts.dart';
+import 'package:provider/provider.dart';
 
-void main() async {
-  await fetchPostDetails(1);
+import 'package:jsonplaceholder/providers/post_list.dart';
+
+void main() {
   runApp(const MyApp());
 }
 
@@ -11,12 +13,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Json Data Handling',
-      theme: ThemeData(
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: ((context) => PostsProvider())),
+      ],
+      child: MaterialApp(
+        title: 'Json Data Handling',
+        theme: ThemeData(
+          useMaterial3: true,
+        ),
+        home: const PostsScreen(),
       ),
-      home: const Scaffold(),
     );
   }
 }
