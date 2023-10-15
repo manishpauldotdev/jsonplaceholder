@@ -20,22 +20,29 @@ class SinglePostScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                post['title'],
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 18,
-                ),
-              ),
-              SizedBox(
-                width: 100,
-                child: Text(
-                  '~${post['userId']}',
-                  textAlign: TextAlign.right,
-                  style: const TextStyle(
-                    fontSize: 14,
+              Card(
+                color: Colors.amber[200],
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        post['title'],
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                      Text(
+                        '~${post['userId']}',
+                        textAlign: TextAlign.right,
+                        style: const TextStyle(
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
